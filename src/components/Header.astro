@@ -1,57 +1,27 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import Squiggle from "./Squiggle.astro";
 ---
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-    </div>
-
-  </nav>
-</header>
 <style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: white;
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  header a:link, header a:visited {
+    @apply no-underline;
   }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
+  header a:visited, header a:hover, header a:visited {
+    @apply bg-inherit text-inherit;
   }
 </style>
+
+<header class="mb-8">
+  <p class="font-title text-center text-2xl"><a href="/" class="">{SITE_TITLE}</a></p>
+  <nav class="mb-8">
+    <ul class="flex gap-4 justify-center text-sm tracking-tight">
+      <li><HeaderLink href="/">Home</HeaderLink></li>
+      <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+    </ul>
+  </nav>
+
+  <div class="w-full border-b-2 border-black squiggle"></div>
+
+</header>

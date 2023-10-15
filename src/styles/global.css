@@ -1,7 +1,5 @@
 body {
-  background-color: #fcfcfc;
-  color: #222;
-  padding: 16px;
+  @apply bg-stone-50 text-stone-900 p-4;
 }
 
 a:link, a:visited {
@@ -9,11 +7,16 @@ a:link, a:visited {
 }
 
 a:visited {
-  color: #888;
+  @apply text-stone-500;
 }
 
 a:hover, a:active {
-  background-color: #222;
-  color: #fcfcfc;
+  @apply bg-stone-500 text-stone-50;
+}
+
+.squiggle {
+  filter: url("#squiggle");
+  position: relative;
+  transform: translateZ(0);
 }
 
