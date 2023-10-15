@@ -1,0 +1,19 @@
+body {
+  background-color: #fcfcfc;
+  color: #222;
+  padding: 16px;
+}
+
+a:link, a:visited {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #888;
+}
+
+a:hover, a:active {
+  background-color: #222;
+  color: #fcfcfc;
+}
+
