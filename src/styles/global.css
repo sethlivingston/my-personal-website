@@ -2,6 +2,26 @@ body {
   @apply bg-stone-50 text-stone-900 p-4;
 }
 
+h1, h2, h3, h4 {
+  @apply font-title;
+}
+
+.prose h2, .prose h3, .prose h4 {
+  @apply font-normal;
+}
+
+.prose h2 {
+  @apply text-3xl;
+}
+
+.prose h3 {
+  @apply text-2xl;
+}
+
+.prose h4 {
+  @apply text-xl; 
+}
+
 a:link, a:visited {
   text-decoration: underline;
 }
