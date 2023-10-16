@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       title: "Londrina Solid, sans-serif",
-      sans: "Schibsted Grotesk, sans-serif" 
+      sans: "PT Sans, Schibsted Grotesk, sans-serif" 
     },
     extend: {},
   },
