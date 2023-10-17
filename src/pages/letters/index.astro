@@ -1,12 +1,15 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-const posts = (await getCollection("blog", ({ data }) => data.featured !== undefined)).sort(
-  (a, b) => a.data.featured - b.data.featured
+const effectiveDate = (d) => d.updatedDate || d.pubDate;
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => effectiveDate(a.data).valueOf() - effectiveDate(b.data).valueOf()
 );
 ---
 
@@ -16,17 +19,10 @@ const posts = (await getCollection("blog", ({ data }) => data.featured !== undef
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="font-sans min-h-screen">
+    <Header />
     <main class="text-center">
       <article class="mx-auto prose prose-stone text-left">
-
-        <h1 class="mt-20 mb-10 font-title text-5xl text-center">{SITE_TITLE}</h1>
-        <p class="text-center">
-          by <strong>Seth Livingston</strong><br/>
-          Software engineer ever since I got my first computer in 5th grade
-        </p>
-
-        <h2 class="text-center">Featured letters</h2>
-        <ul class="mb-10">
+        <ul>
           {
             posts.map((post) => (
               <li>
@@ -39,9 +35,6 @@ const posts = (await getCollection("blog", ({ data }) => data.featured !== undef
             ))
           }
         </ul>
-
-        <p class="text-center"><a href="/letters">View all letters</a></p>
-
       </article>
     </main>
     <Footer />
