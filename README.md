@@ -2,6 +2,8 @@
 
 My personal website.
 
+https://sethlivingston.dev
+
 Built with 🩶 in Texas with:
 
 * [Astro](https://astro.build)
