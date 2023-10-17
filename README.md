@@ -1,4 +1,4 @@
-# Everything I know about software development
+# Letters to the new hire
 
 My personal website.
 
